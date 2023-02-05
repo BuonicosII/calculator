@@ -20,11 +20,12 @@ body {
     border: solid black 1px;
     margin: 8px;
     display: flex;
+    flex-wrap: wrap-reverse;
     flex-direction: row-reverse;
-    align-items: flex-end;
+    align-content: flex-end;
 }
 
-.digit, .num {
+.digit, .num, .operator, #ac, #c {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,4 +43,14 @@ body {
     border: solid black 1px;
     width: 200px;
     height: 90px;
+}
+
+.subDisplay {
+    height: 60px; 
+    min-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+
 }
