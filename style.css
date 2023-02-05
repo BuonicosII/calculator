@@ -19,9 +19,12 @@ body {
     height: 135px;
     border: solid black 1px;
     margin: 8px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
 }
 
-.digit {
+.digit, .num {
     display: flex;
     justify-content: center;
     align-items: center;
