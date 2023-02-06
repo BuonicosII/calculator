@@ -135,5 +135,15 @@ acButton.addEventListener('click', function() {
 
 let cButton = document.querySelector('#c');
 cButton.addEventListener('click', function () {
+    if (displayText.textContent === '') {
+        operator = '';
+        displayText.textContent = operand1;
+        upperDisplay.textContent = ''; 
+    } else if (resultChecker = 1) {
+        displayText.textContent = 0;
+        upperDisplay.textContent = '';
+        resultChecker = 0;
+    } else {
     displayText.textContent = displayText.textContent.slice(0, displayText.textContent.length-1);
+    }
 });
