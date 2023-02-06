@@ -2,9 +2,20 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 1080px;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Helvetica, sans-serif;
+    transition: 0.5s;
+    background-image: url(pexels-pixabay-48814.jpg);
+}
+sup {
+    font-size: 15px;
+    vertical-align: super;
 }
 
 #calculator {
+    box-sizing: border-box;
     border: solid black 2px;
     display: flex;
     flex-wrap: wrap;
@@ -12,20 +23,24 @@ body {
     align-content: space-around;
     width: 450px;
     padding: 8px;
+    background-color: rgb(250, 252, 223);
+    border-radius: 10px;
 }
 
 #display {
+    box-sizing: border-box;
     width: 420px;
     height: 135px;
     border: solid black 1px;
     margin: 8px;
     display: flex;
-    flex-wrap: wrap-reverse;
-    flex-direction: row-reverse;
-    align-content: flex-end;
+    flex-direction: column-reverse;
+    background-color: rgb(148, 230, 230);
+    border-radius: 10px;
 }
 
-.digit, .num, .operator, #ac, #c {
+.num, .operator, #ac, #c {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,24 +48,61 @@ body {
     border: solid black 1px;
     width: 90px;
     height: 90px;
+    border-radius: 10px;
 } 
 
+.num {
+    background-color: rgb(29, 144, 216);
+    color: rgb(250, 252, 223);
+}
+
+.operator {
+    background-color: rgb(0, 110, 179);
+    color: rgb(250, 252, 223);
+
+}
+
+#ac {
+    background-color: rgb(190, 95, 95);
+    color: rgb(250, 252, 223);
+
+}
+
+#c {
+    background-color: rgb(226, 161, 100);
+    color: rgb(250, 252, 223);
+
+}
+
 #equals {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 8px;
     border: solid black 1px;
-    width: 200px;
+    width: 196px;
     height: 90px;
+    background-color: rgb(18, 51, 121);
+    border-radius: 10px;
+    color: rgb(250, 252, 223);
 }
 
 .subDisplay {
-    height: 60px; 
-    min-width: 400px;
+    box-sizing: border-box;
+    height: 67px; 
+    min-width: 418px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     padding: 10px;
 
+}
+
+.num:hover, .operator:hover, #ac:hover, #c:hover, #equals:hover {
+    filter: brightness(120%);
+    box-shadow: 0 0 5px 10px rgb(116, 200, 255);
+    margin-top: 1px;
+    border: solid white 1px;
+    
 }

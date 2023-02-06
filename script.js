@@ -93,10 +93,16 @@ buttonsDigits.forEach((button) => {
 let buttonsOperator = document.querySelectorAll('.operator');
 buttonsOperator.forEach((button) => {
     button.addEventListener('click', function(e) {
+        if (displayText.textContent === '') {
+            operator = e.target.textContent;
+            upperDisplay.textContent = `${operand1} ${operator}`;
+            displayText.textContent = '';
+        } else {
         operand1 = displayText.textContent; 
         operator = e.target.textContent;
         upperDisplay.textContent = `${operand1} ${operator}`;
         displayText.textContent = '';
+    }
 });
 }
 );
@@ -139,7 +145,7 @@ cButton.addEventListener('click', function () {
         operator = '';
         displayText.textContent = operand1;
         upperDisplay.textContent = ''; 
-    } else if (resultChecker = 1) {
+    } else if (resultChecker === 1) {
         displayText.textContent = 0;
         upperDisplay.textContent = '';
         resultChecker = 0;
