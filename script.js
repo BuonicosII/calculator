@@ -58,6 +58,7 @@ function operate(operand1, operator, operand2) {
 let operand1; 
 let operand2;
 let operator;
+let resultChecker = 0;
 let display = document.querySelector('#display')
 let displayText = document.createElement('div');
 displayText.textContent = '0';
@@ -74,7 +75,9 @@ let buttonsDigits = document.querySelectorAll('.num');
 buttonsDigits.forEach((button) => {
     button.addEventListener('click', function(e) {
         
-        if (displayText.textContent === '0') {
+        if (displayText.textContent === '0' || resultChecker === 1) {
+            resultChecker = 0;
+            upperDisplay.textContent = '';
             displayText.textContent = e.target.textContent;
         } else {
             displayText.textContent += e.target.textContent;
@@ -110,6 +113,7 @@ equalOperator.addEventListener('click', function() {
     operand1 = '';
     operand2 = '';
     operator = '';
+    resultChecker = 1;
 });
 
 //AC button
@@ -120,6 +124,7 @@ acButton.addEventListener('click', function() {
     operand1 = '';
     operand2 = '';
     operator = '';
+    resultChecker = 0;
     displayText.textContent = 0;
     upperDisplay.textContent = '';
 });
