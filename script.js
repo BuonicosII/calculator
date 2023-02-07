@@ -165,6 +165,18 @@ acButton.addEventListener('click', function() {
     upperDisplay.textContent = '';
 });
 
+//keysupport for AC 
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Delete') {
+    operand1 = '';
+    operand2 = '';
+    operator = '';
+    resultChecker = 0;
+    displayText.textContent = 0;
+    upperDisplay.textContent = '';
+    }
+});
+
 //C button
 //function to remove last added character to the number on the display or void the 
 //selected operator
