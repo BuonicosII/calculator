@@ -75,12 +75,29 @@ let buttonsDigits = document.querySelectorAll('.num');
 buttonsDigits.forEach((button) => {
     button.addEventListener('click', function(e) {
         
-        if (displayText.textContent === '0' || resultChecker === 1) {
+        if (resultChecker === 1 && displayText.textContent !== '') {
+
             resultChecker = 0;
             upperDisplay.textContent = '';
             displayText.textContent = e.target.textContent;
+
+        } else if (displayText.textContent === '0' && e.target.textContent === '.' 
+        || displayText.textContent === '' && e.target.textContent === '.') {
+
+            displayText.textContent = '0' + e.target.textContent;
+    
+        } else if (displayText.textContent === '0') {
+
+            displayText.textContent = e.target.textContent;
+            
+        } else if (e.target.textContent === '.' && displayText.textContent.includes(".")) {
+            
+            displayText.textContent = displayText.textContent;
+            
         } else {
+
             displayText.textContent += e.target.textContent;
+
         }
 });
 }
@@ -162,6 +179,8 @@ cButton.addEventListener('click', function () {
         displayText.textContent = 0;
         upperDisplay.textContent = '';
         resultChecker = 0;
+    } else if (resultChecker === 0 && display.textContent === '0') {
+        displayText.textContent = 0;
     } else {
     displayText.textContent = displayText.textContent.slice(0, displayText.textContent.length-1);
     }
