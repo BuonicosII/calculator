@@ -144,7 +144,7 @@ equalOperator.addEventListener('click', function() {
     } else {
     operand2 = displayText.textContent;
     upperDisplay.textContent = `${operand1} ${operator} ${operand2}`;
-    displayText.textContent = operate(operand1, operator, operand2);
+    displayText.textContent = `${operate(operand1, operator, operand2)}`;
     operand1 = '';
     operand2 = '';
     operator = '';
@@ -153,7 +153,7 @@ equalOperator.addEventListener('click', function() {
 });
 
 //AC button
-//funtion to reset the calculator and all of its values
+//funtion to reset the calculator and all of its values on click
 
 let acButton = document.querySelector('#ac');
 acButton.addEventListener('click', function() {
@@ -161,18 +161,18 @@ acButton.addEventListener('click', function() {
     operand2 = '';
     operator = '';
     resultChecker = 0;
-    displayText.textContent = 0;
+    displayText.textContent = '0';
     upperDisplay.textContent = '';
 });
 
-//keysupport for AC 
+//function to reset the calculator and all of its values when the Del Key is pressed
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Delete') {
     operand1 = '';
     operand2 = '';
     operator = '';
     resultChecker = 0;
-    displayText.textContent = 0;
+    displayText.textContent = '0';
     upperDisplay.textContent = '';
     }
 });
@@ -188,12 +188,35 @@ cButton.addEventListener('click', function () {
         displayText.textContent = operand1;
         upperDisplay.textContent = ''; 
     } else if (resultChecker === 1) {
-        displayText.textContent = 0;
+        displayText.textContent = '0';
         upperDisplay.textContent = '';
         resultChecker = 0;
-    } else if (resultChecker === 0 && display.textContent === '0') {
-        displayText.textContent = 0;
+    } else if (resultChecker === 0 && displayText.textContent === '0'
+                || resultChecker === 0 && displayText.textContent.length === 1 && operator === '') {
+        displayText.textContent = '0';
     } else {
     displayText.textContent = displayText.textContent.slice(0, displayText.textContent.length-1);
+    }
+});
+
+//function to remove last added character to the number on the display or void the 
+//selected operator when backspace is pressed
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Backspace') {
+        if (displayText.textContent === '') {
+            operator = '';
+            displayText.textContent = operand1;
+            upperDisplay.textContent = ''; 
+        } else if (resultChecker === 1) {
+            displayText.textContent = '0';
+            upperDisplay.textContent = '';
+            resultChecker = 0;
+        } else if (resultChecker === 0 && displayText.textContent === '0'
+                    || resultChecker === 0 && displayText.textContent.length === 1 && operator === '') {
+            displayText.textContent = '0';
+        } else {
+        displayText.textContent = displayText.textContent.slice(0, displayText.textContent.length-1);
+        }
     }
 });
