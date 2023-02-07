@@ -121,6 +121,10 @@ buttonsOperator.forEach((button) => {
 
 let equalOperator = document.querySelector('#equals');
 equalOperator.addEventListener('click', function() {
+    if (displayText.textContent === '0' && operator === ':' || displayText.textContent === '' && operator === ':') {
+        alert('Nice try, don\'t break my calculator, thx ;-)');
+        displayText.textContent = '';
+    } else {
     operand2 = displayText.textContent;
     upperDisplay.textContent = `${operand1} ${operator} ${operand2}`;
     displayText.textContent = operate(operand1, operator, operand2);
@@ -128,6 +132,7 @@ equalOperator.addEventListener('click', function() {
     operand2 = '';
     operator = '';
     resultChecker = 1;
+}
 });
 
 //AC button
