@@ -57,7 +57,7 @@ function operate(operand1, operator, operand2) {
 //basic global variables
 let operand1; 
 let operand2;
-let operator;
+let operator = '';
 let resultChecker = 0;
 let display = document.querySelector('#display')
 let displayText = document.createElement('div');
@@ -93,10 +93,18 @@ buttonsDigits.forEach((button) => {
 let buttonsOperator = document.querySelectorAll('.operator');
 buttonsOperator.forEach((button) => {
     button.addEventListener('click', function(e) {
-        if (displayText.textContent === '') {
+        if (displayText.textContent === '' && operator !== '') {
             operator = e.target.textContent;
             upperDisplay.textContent = `${operand1} ${operator}`;
             displayText.textContent = '';
+        } else if (displayText.textContent !== '' && operator !== '') {
+            operand2 = displayText.textContent;
+            upperDisplay.textContent = `${operate(operand1, operator, operand2)}`;
+            operand1 = operate(operand1, operator, operand2);
+            operator = e.target.textContent;
+            upperDisplay.textContent += ` ${operator}`;
+            displayText.textContent = '';
+            operand2 = '';;
         } else {
         operand1 = displayText.textContent; 
         operator = e.target.textContent;
