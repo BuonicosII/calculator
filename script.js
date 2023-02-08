@@ -201,6 +201,8 @@ equalOperator.addEventListener('click', function() {
     if (displayText.textContent === '0' && operator === '/' || displayText.textContent === '' && operator === '/') {
         alert('Nice try, don\'t break my calculator, thx ;-)');
         displayText.textContent = '';
+    } else if (operator === '') {
+        alert('Please select a valid operator first!');
     } else {
     operand2 = displayText.textContent;
     upperDisplay.textContent = `${operand1} ${operator} ${operand2}`;
@@ -220,6 +222,8 @@ document.addEventListener('keydown', function(e) {
         if (displayText.textContent === '0' && operator === '/' || displayText.textContent === '' && operator === '/') {
             alert('Nice try, don\'t break my calculator, thx ;-)');
             displayText.textContent = '';
+        } else if (operator === '') {
+            alert('Please select a valid operator first!');
         } else {
         operand2 = displayText.textContent;
         upperDisplay.textContent = `${operand1} ${operator} ${operand2}`;
